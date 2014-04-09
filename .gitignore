@@ -2,6 +2,7 @@
 *.o
 *.pc
 lib
+Makefile.save
 Makefile.bak
 apps/openssl
 crypto/aes/aes-x86_64.s
