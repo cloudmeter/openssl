@@ -2,9 +2,12 @@
 *.o
 *.pc
 lib
+Makefile
 Makefile.save
 Makefile.bak
 apps/openssl
+apps/CA.pl.bak
+crypto/opensslconf.h
 crypto/aes/aes-x86_64.s
 crypto/aes/aesni-sha1-x86_64.s
 crypto/aes/aesni-x86_64.s
@@ -85,6 +88,7 @@ test/tmp.bntest
 test/tmp_intP1.ss
 test/tmp_intP2.ss
 test/wp_test
+tools/c_rehash.bak
 MINFO
 _win64/
 inc32/
