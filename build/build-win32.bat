@@ -46,11 +46,11 @@ if %errorlevel% neq 0 goto fail
 
 SET DEBUG_SUFFIX=
 @echo Building x64 Release DLLs
-call build\build-dll.bat
+call build\build-dll.bat %2
 if %errorlevel% neq 0 goto fail
 
 @echo Building x64 Release static lib
-call build\build-lib.bat
+call build\build-lib.bat %2
 if %errorlevel% neq 0 goto fail
 
 echo Build finished
