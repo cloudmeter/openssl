@@ -13,14 +13,16 @@ ECHO Building OpenSSL in %OPENSSL_DIR%
 )
 
 SET OUTPUT_PREFIX=_win64
-SET OPENSSL_OPTIONS=
+REM TODO: openlssl build script doesn't handle no-ssl2 and no-ssl3 defined simultaneously
+REM so we just disable SSL3
+SET OPENSSL_OPTIONS=no-ssl3
 SET INC_DIR=%OPENSSL_DIR%\inc64
 SET BIN_DIR=%OPENSSL_DIR%\bin\x64
 SET LIB_DIR=%OPENSSL_DIR%\lib\x64
 
 rmdir /S /Q %OUTPUT_PREFIX%
 REM x64 Debug builds
-perl Configure %OPENSSL_OPTIONS% debug-VC-WIN64A --prefix=%OUTPUT_PREFIX%
+perl Configure debug-VC-WIN64A %OPENSSL_OPTIONS% --prefix=%OUTPUT_PREFIX%
 if %errorlevel% neq 0 goto fail
 
 call ms\do_win64a.bat
@@ -36,7 +38,7 @@ call build\build-lib.bat %2
 if %errorlevel% neq 0 goto fail
 
 REM x64 Release builds
-perl Configure %OPENSSL_OPTIONS% VC-WIN64A --prefix=%OUTPUT_PREFIX%
+perl Configure VC-WIN64A %OPENSSL_OPTIONS% --prefix=%OUTPUT_PREFIX%
 if %errorlevel% neq 0 goto fail
 
 call ms\do_win64a.bat

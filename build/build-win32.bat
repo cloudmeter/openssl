@@ -13,7 +13,9 @@ ECHO Building OpenSSL in %OPENSSL_DIR%
 )
 
 SET OUTPUT_PREFIX=_win32
-SET OPENSSL_OPTIONS=
+REM TODO: openlssl build script doesn't handle no-ssl2 and no-ssl3 defined simultaneously
+REM so we just disable SSL3s
+SET OPENSSL_OPTIONS=no-ssl3
 SET INC_DIR=%OPENSSL_DIR%\inc32
 SET BIN_DIR=%OPENSSL_DIR%\bin
 SET LIB_DIR=%OPENSSL_DIR%\lib
